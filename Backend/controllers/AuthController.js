@@ -30,7 +30,7 @@ const login = async (req,res) => {
             return res.status(403).json({message: errorMessage , success: false})
         }
 
-        // authorizing the password of the client side and the password in db
+        // authorizing the password by comparing the client side password and the password in db
         const isPasEqual = await bycrypt.compare(password, user.password)
         if(!isPasEqual) {
             return res.status(403).json({message: errorMessage , success: false})
