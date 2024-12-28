@@ -1,0 +1,80 @@
+*,
+::before,
+::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+label{
+    font-size: 20px;
+}
+
+html,
+body{
+   height: 100%;
+   width: 100%; 
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    background-color: #FFF;
+    padding: 32px 48px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68,90,1);
+
+}
+
+.container h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: underline;
+}
+
+.container form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 20%;
+}
+
+.container div{
+    display: flex;
+    flex-direction: column;
+}
+
+.container label{
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+.container input{
+    width: 100%;
+    padding: 8px;
+    gap: 4px;
+    border: 1px solid black;
+    border-radius: 4px;
+
+}
+
+.container input::placeholder{
+    font-size: 12px;
+}
+
+button{
+    background-color: purple;
+    margin-top: 8px;
+    padding: 6px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
