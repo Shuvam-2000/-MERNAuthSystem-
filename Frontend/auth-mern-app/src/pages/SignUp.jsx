@@ -20,24 +20,18 @@ const SignUp = () => {
         if(!signUp.name){
             toast.error('Please Enter Your Name');
             return;
-        } else if (signUp.name.length <= 2 || signUp.name.length > 20) {
-            toast.error("Name Should Of 10 Letters At least");
-            return;
         }
         if (!signUp.email) {
             toast.error("Please Enter Your Email");
             return;
-        } else if (!/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(signUp.email)) {
+        }else if (!/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(signUp.email)) {
             toast.error("Invalid Email Address");
             return;
         }
         if (!signUp.password) {
             toast.error("Please Enter Password");
             return;
-        } else if (signUp.password.length >= 15 || signUp.password.length <= 5) {
-            toast.error("Password must be between 6 & 14 characters");
-            return;
-        } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(signUp.password)) {
+        }else if (!/[!@#$%^&*(),.?":{}|<>]/.test(signUp.password)) {
             toast.error("Password must contain at least one special character");
             return;
         }else {
@@ -58,12 +52,17 @@ const SignUp = () => {
             });
             const result = await response.json();
             // console.log(result); // debugging
-            const {success, message } = result;
+            const { success, message, error } = result;
             if(success){
                 toast.success('Sign Up SuccesFull', message);
                 setTimeout(() => {
                     navigate('/login')
-                },2000)
+                },1000)
+            }else if(error){
+                const details = error?.details[0].message;
+                toast.error(details)
+            }else if(!success){
+                toast.error('User Already Exists', message)
             }
         } catch (error) {
             toast.error('SignUp Failed', error)
