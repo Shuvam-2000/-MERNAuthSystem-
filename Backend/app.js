@@ -17,6 +17,10 @@ app.use(bodyParser.json());
 app.use(cors());  // Enable CORS for all routes
 
 // all routes here
+app.get('/', (req,res) => {
+    res.send('Hello');
+})
+
 app.use('/auth', AuthRouter);
 app.use('/products', ProductRouter);
 
