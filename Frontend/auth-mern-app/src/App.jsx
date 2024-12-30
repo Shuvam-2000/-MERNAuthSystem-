@@ -1,30 +1,30 @@
 import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
+import { useState } from 'react';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
-// import { useState } from 'react';
-import './App.css'
+import Refresh from './pages/Refresh';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // const [ isAuthenticated, setisAunthenticated ] = useState(false)
-  // const PrivateRoute = ((e) => {
-  //   return isAuthenticated ? e : <Navigate to='/login' />
-  // })
+  const PrivateRoute = ({ element }) => {
+    return isAuthenticated ? element : <Navigate to='/login' />;
+  };
 
   return (
     <>
       <BrowserRouter>
+        <Refresh setIsAuthenticated={setIsAuthenticated} />
         <Routes>
           <Route path='/' element={<Navigate to='/login' />} />
-          {/* <Route path='/home' element={<PrivateRoute element={<Home />} />} /> */}
-          <Route path='/home' element={<Home />} />
+          <Route path='/home' element={<PrivateRoute element={<Home />} />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
         </Routes>
-      </BrowserRouter> 
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
