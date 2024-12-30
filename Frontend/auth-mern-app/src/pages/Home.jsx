@@ -29,7 +29,7 @@ const Home = () => {
       // fetch products from the database 
       const fetchProductData = async () => {
         try {
-            const url = 'http://localhost:8080/products';
+            const url = 'https://mernauthsystem-backend.onrender.com/products';
             const headers = {
               headers: {
                 'Authorization': localStorage.getItem('token')
