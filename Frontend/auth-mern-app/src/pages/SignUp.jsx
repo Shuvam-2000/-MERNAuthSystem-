@@ -51,7 +51,6 @@ const SignUp = () => {
                 body: JSON.stringify(signUp)
             });
             const result = await response.json();
-            // console.log(result); // debugging
             const { success, message, error } = result;
             if(success){
                 toast.success('Sign Up SuccesFull', message);

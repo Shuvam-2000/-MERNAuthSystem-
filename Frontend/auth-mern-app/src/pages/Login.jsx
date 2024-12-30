@@ -45,7 +45,6 @@ const Login = () => {
               body: JSON.stringify(login)
           });
           const result = await response.json();
-          // console.log(result); // debugging
           const { success, message, jwtToken, name, error } = result;
           if(success){
               toast.success('Login SuccesFul', message);
