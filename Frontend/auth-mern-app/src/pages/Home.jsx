@@ -4,10 +4,10 @@ import { toast } from "react-toastify";
 
 const Home = () => {
   
-      // state for rendering user name wheen logged in 
+      // state for rendering user name when logged in 
       const [ loggedInUser, setLoggedInUSer ] = useState('') 
 
-      // originalData used for holding of all the products fetched through api
+      // state for holding of all the products fetched through api
       const [productData, setProductData] = useState([]);
 
       // useNavigate for routing
